@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_character.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_character_spell_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_new_character.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_spell.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_spell_description.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/activity_spell_to_character.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/layout/main_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellBook/app/src/main/res/menu/top_app_bar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellList/app/src/main/res/drawable/button_bg_custom_shape.xml" value="0.22291666666666668" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellList/app/src/main/res/drawable/ug.xml" value="0.22291666666666668" />
         <entry key="..\:/Users/Gebruiker/Documents/School/IKPMD/Dnd_Spells_App/SpellList/app/src/main/res/layout/activity_character.xml" value="0.33" />
