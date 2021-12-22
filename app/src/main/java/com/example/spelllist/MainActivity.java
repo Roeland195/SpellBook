@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 //                TODO: Get data from dataBase, When there is a Database
 
+
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 MainActivity.this.finish();

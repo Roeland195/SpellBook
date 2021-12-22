@@ -1,35 +1,5 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
-
-@Roeland195
-jcquinlan
-/
-dnd-spells
-Public
-Code
-Issues
-1
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-dnd-spells/spells.json
-@jamesyesware
-jamesyesware Fix invalid JSON
-Latest commit e0e7676 on 22 Feb 2019
- History
- 1 contributor
-6345 lines (6340 sloc)  473 KB
-
-//Sword Coast Adventurer v1.2
-
-var jsonSpellData = [
+{
+"spells": [
   {
     "name":"Abi-Dalzim's Horrid Wilting",
     "desc":"<p>You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 10d8 necrotic damage on a failed save, or half as much damage on a successful one.You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.</p><p>This spells damage increases by 1d6 when you reach 5th Level (2d6), 11th level (3d6) and 17th level (4d6).</p>",
@@ -52,6 +22,7 @@ var jsonSpellData = [
     "page":"ee pc 15",
     "range":"Self",
     "components":"S",
+    "material":"",
     "ritual":"no",
     "duration":"1 round",
     "concentration":"no",
@@ -66,6 +37,7 @@ var jsonSpellData = [
     "page":"phb 211",
     "range": "60 feet",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Instantaneous",
     "concentration":"no",
@@ -127,6 +99,7 @@ var jsonSpellData = [
     "page":"phb 211",
     "range":"Self",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 1 hour",
     "concentration":"yes",
@@ -175,6 +148,7 @@ var jsonSpellData = [
     "page":"phb 212",
     "range":"30 feet",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 24 hours",
     "concentration":"yes",
@@ -206,6 +180,7 @@ var jsonSpellData = [
     "page":"phb 213",
     "range":"120 feet",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 1 minute",
     "concentration":"yes",
@@ -220,6 +195,7 @@ var jsonSpellData = [
     "page":"phb 213",
     "range":"Self",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 1 hour",
     "concentration":"yes",
@@ -281,6 +257,7 @@ var jsonSpellData = [
     "page":"phb 214",
     "range":"500 feet",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 10 minutes",
     "concentration":"yes",
@@ -327,6 +304,7 @@ var jsonSpellData = [
     "page":"phb 215",
     "range":"Self",
     "components":"V, S",
+    "material":"",
     "ritual":"no",
     "duration":"Instantaneous",
     "concentration":"no",
@@ -372,6 +350,7 @@ var jsonSpellData = [
     "page":"phb 216",
     "range":"Self",
     "components":"V",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 10 minutes",
     "concentration":"yes",
@@ -386,6 +365,7 @@ var jsonSpellData = [
     "page":"phb 216",
     "range":"Self",
     "components":"V",
+    "material":"",
     "ritual":"no",
     "duration":"Up to 10 minutes",
     "concentration":"yes",
@@ -6371,16 +6351,5 @@ var jsonSpellData = [
     "class":"Bard, Cleric, Paladin",
     "oaths":"Devotion"
   }
-];
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+]
+}
