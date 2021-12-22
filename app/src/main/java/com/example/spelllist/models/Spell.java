@@ -5,8 +5,9 @@ import android.content.Intent;
 import java.util.ArrayList;
 
 public class Spell {
+    private String id;
     private ArrayList<String> components;
-    private Intent level;
+    private int level;
     private String name;
     private String book;
     private String duration;
@@ -14,7 +15,7 @@ public class Spell {
     private String school;
     private String time;
 
-    public Spell(ArrayList<String> components, Intent level, String name, String book, String duration, String range, String school, String time) {
+    public Spell(ArrayList<String> components, int level, String name, String book, String duration, String range, String school, String time) {
         this.components = components;
         this.level = level;
         this.name = name;
@@ -32,7 +33,7 @@ public class Spell {
         return components;
     }
 
-    public Intent getLevel() {
+    public int getLevel() {
         return level;
     }
 
@@ -59,4 +60,8 @@ public class Spell {
     public String getTime() {
         return time;
     }
+
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
 }
