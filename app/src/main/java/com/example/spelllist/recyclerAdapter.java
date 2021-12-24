@@ -13,9 +13,11 @@ import java.util.ArrayList;
 
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewholder> {
     private ArrayList<Character> characterList;
+    private RecyclerViewClickInterface recyclerViewClickInterface;
 
-    public recyclerAdapter(ArrayList<Character> characterList){
+    public recyclerAdapter(ArrayList<Character> characterList, RecyclerViewClickInterface recyclerViewClickInterface){
         this.characterList = characterList;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
     }
 
     public class MyViewholder extends RecyclerView.ViewHolder{
@@ -24,18 +26,30 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
         public MyViewholder(final View view){
             super(view);
             nameTxt = view.findViewById(R.id.namePlace);
+
+            view.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    recyclerViewClickInterface.onItemClick(getAdapterPosition());
+                }
+            });
+
+            view.setOnLongClickListener((View) -> {
+                    recyclerViewClickInterface.onLongItemClick(getAdapterPosition());
+                    return true;
+            });
         }
     }
 
     @NonNull
     @Override
-    public recyclerAdapter.MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.character_list_items, parent, false);
         return new MyViewholder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull recyclerAdapter.MyViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewholder holder, int position) {
         String name = characterList.get(position).getName();
         holder.nameTxt.setText(name);
     }

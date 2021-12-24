@@ -21,7 +21,7 @@
 
 
         <ImageButton
-            android:id="@+id/backToCharacter"
+            android:id="@+id/backToPrev"
             android:layout_width="30pt"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10pt"
@@ -50,13 +50,15 @@
             app:srcCompat="@drawable/spellbooktwo"></ImageView>
 
         <TextView
+            android:id="@+id/characterName"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="1.3in"
             android:background="#BF000000"
             android:text="Ivy"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -75,21 +77,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
-            android:textSize="60px"
             android:layout_weight="1"
             android:padding="20dp"
-            android:text="Characters" />
+            android:text="Spells"
+            android:textSize="60px" />
 
-        <Button
-            android:id="@+id/CreateCharacter"
-            android:layout_marginRight="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="New Character" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/spellListView"
         android:layout_width="388dp"
         android:layout_height="306dp"
         android:layout_marginStart="8dp"

@@ -20,7 +20,7 @@
 
 
         <ImageButton
-            android:id="@+id/backToCharacter"
+            android:id="@+id/backToPrev"
             android:layout_width="30pt"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10pt"

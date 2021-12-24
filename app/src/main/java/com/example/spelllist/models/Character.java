@@ -14,6 +14,13 @@ public class Character implements Serializable {
         this.imgPath = imgPath;
     }
 
+    public Character(String id, String name, String imgPath, ArrayList<Spell> spellBook){
+        this.name = name;
+        this.imgPath = imgPath;
+        this.id = id;
+        this.spells = spellBook;
+    }
+
     public Character(String id, String name, String imgPath) {
         this.name = name;
         this.imgPath = imgPath;
@@ -52,4 +59,6 @@ public class Character implements Serializable {
     public void setSpells(ArrayList<Spell> spells) {
         this.spells = spells;
     }
+
+
 }

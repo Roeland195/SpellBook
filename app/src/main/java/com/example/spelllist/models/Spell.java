@@ -2,9 +2,10 @@ package com.example.spelllist.models;
 
 import android.content.Intent;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Spell {
+public class Spell implements Serializable {
     private String components;
     private String level;
     private String name;
@@ -36,6 +37,8 @@ public class Spell {
         this.ritual = ritual;
         this.material = material;
     }
+
+    public Spell(){}
 
     public String getComponents() {
         return components;

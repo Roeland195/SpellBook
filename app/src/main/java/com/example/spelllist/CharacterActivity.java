@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -17,12 +19,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class CharacterActivity extends AppCompatActivity {
+public class CharacterActivity extends AppCompatActivity implements RecyclerViewClickInterface{
     firebaseConnection firebaseConnection = com.example.spelllist.firebaseConnection.getInstance();
     ArrayList<Character> characters = new ArrayList<>();
     private RecyclerView characterListView;
@@ -30,17 +31,25 @@ public class CharacterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_character);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_character);
         characterListView = findViewById(R.id.characterList);
+
 
         final Button newCharacterBtn = findViewById(R.id.addCharacter);
         newCharacterBtn.setOnClickListener(this::newPage);
 
+        final ImageButton backToPage = findViewById(R.id.backToPrev);
+        backToPage.setOnClickListener(this::backToPage);
+
         getCharactersFromDB();
         System.out.println("____________________________________________________________________________________________________");
 
+    }
+
+    private void backToPage(View view) {
+        this.finish();
     }
 
 
@@ -49,7 +58,7 @@ public class CharacterActivity extends AppCompatActivity {
         firebaseConnection.getCharacters(character -> {
             characters = character;
 
-            recyclerAdapter adapter = new recyclerAdapter(characters);
+            recyclerAdapter adapter = new recyclerAdapter(characters, this);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
             characterListView.setLayoutManager(layoutManager);
             characterListView.setItemAnimator(new DefaultItemAnimator());
@@ -122,5 +131,19 @@ public class CharacterActivity extends AppCompatActivity {
             return null;
         }
         return json;
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, CharacterSpellListActivity.class);
+        intent.putExtra("character", characters.get(position));
+        startActivity(intent);
+
+    }
+
+
+    @Override
+    public void onLongItemClick(int position) {
+
     }
 }

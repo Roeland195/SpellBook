@@ -3,12 +3,11 @@ package com.example.spelllist;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.spelllist.models.Character;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 
 public class NewCharacter extends AppCompatActivity {
     firebaseConnection firebaseConnection = com.example.spelllist.firebaseConnection.getInstance();
@@ -21,6 +20,13 @@ public class NewCharacter extends AppCompatActivity {
 
         final Button createCharacter = findViewById(R.id.createCharacter);
         createCharacter.setOnClickListener(this::addCharacter);
+
+        final ImageButton backToPage = findViewById(R.id.backToPrev);
+        backToPage.setOnClickListener(this::backToPage);
+    }
+
+    private void backToPage(View view) {
+        this.finish();
     }
 
     private void addCharacter(View view) {
