@@ -14,10 +14,12 @@ import android.widget.Toast;
 
 import com.example.spelllist.models.Character;
 import com.example.spelllist.models.Spell;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 public class CharacterSpellListActivity extends AppCompatActivity implements RecyclerViewClickInterface {
+    firebaseConnection firebaseConnection = com.example.spelllist.firebaseConnection.getInstance();
     private ArrayList<Spell> spellBook;
     private TextView spellName;
     private Character character;
@@ -65,6 +67,16 @@ public class CharacterSpellListActivity extends AppCompatActivity implements Rec
 
     @Override
     public void onLongItemClick(int position) {
-
+        Snackbar snackbar = Snackbar
+                .make(this.findViewById(android.R.id.content), "Are you sure?", Snackbar.LENGTH_LONG)
+                .setAction("Remove", new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        firebaseConnection.deleteSpellFromCharacter(character.getId(), spellBook.get(position).getName());
+                        spellBook.remove(position);
+                        setCharacterDetails();
+                    }
+                });
+        snackbar.show();
     }
 }

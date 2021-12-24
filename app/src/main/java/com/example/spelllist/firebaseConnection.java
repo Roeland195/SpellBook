@@ -1,5 +1,6 @@
 package com.example.spelllist;
 
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 
 
@@ -47,22 +49,21 @@ class firebaseConnection {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 characters.clear();
                 String name = "";
-                String imgPath = "";
+                String image = "";
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     ArrayList<Spell> spellBook = new ArrayList<>();
                     for(DataSnapshot snap : dataSnapshot.getChildren()){
                         if(snap.getKey().equals("name")){
                             name = snap.getValue().toString();
                         }if(snap.getKey().equals("imgPath")){
-                            imgPath = snap.getValue().toString();
+                            image = snap.getValue().toString();
                         }if(snap.getKey().equals("Spells")){
                             for(DataSnapshot snapshot1: snap.getChildren()){
                                 spellBook.add(getModelOfSpell(snapshot1));
                             }
                         }
                     }
-                    Character character = new Character(dataSnapshot.getKey() ,name ,imgPath, spellBook);
-
+                    Character character = new Character(dataSnapshot.getKey() ,name ,image, spellBook);
                     characters.add(character);
                 }
                 get.getCharacters(characters);
@@ -75,6 +76,7 @@ class firebaseConnection {
         });
     }
 
+//  Get Spells
     public void getSpells(GetSpells get){
         ArrayList<Spell> spells = new ArrayList<Spell>();
         dbRefSpells.addValueEventListener(new ValueEventListener() {
@@ -130,51 +132,51 @@ class firebaseConnection {
         String ritual ="";
         String material ="";
         for(DataSnapshot snap: dataSnapshot.getChildren()){
-        switch (snap.getKey()){
-            case "components":
-                component = snap.getValue().toString();
-                break;
-            case "concentration":
-                con = snap.getValue().toString();
-                break;
-            case "dClass":
-                dndClass = snap.getValue().toString();
-                break;
-            case "desc":
-                String snapDesc = snap.getValue().toString();
-                snapDesc = snapDesc.replace("<p>", "");
-                snapDesc = snapDesc.replace("</p>","");
-                snapDesc = snapDesc.replace("<b>" , "");
-                snapDesc = snapDesc.replace("</b>","");
-                System.out.println("THIS IS THE NEW DESC: "+snapDesc);
-                desc = snapDesc;
-                break;
-            case "duration":
-                duration = snap.getValue().toString();
-                break;
-            case "level":
-                level = snap.getValue().toString();
-                break;
-            case "material":
-                material = snap.getValue().toString();
-                break;
-            case "name":
-                name = snap.getValue().toString();
-                break;
-            case "range":
-                range = snap.getValue().toString();
-                break;
-            case "ritual":
-                ritual = snap.getValue().toString();
-                break;
-            case "school":
-                school = snap.getValue().toString();
-                break;
-            case "time":
-                time = snap.getValue().toString();
-                break;
+            switch (snap.getKey()){
+                case "components":
+                    component = snap.getValue().toString();
+                    break;
+                case "concentration":
+                    con = snap.getValue().toString();
+                    break;
+                case "dClass":
+                    dndClass = snap.getValue().toString();
+                    break;
+                case "desc":
+                    String snapDesc = snap.getValue().toString();
+                    snapDesc = snapDesc.replace("<p>", "");
+                    snapDesc = snapDesc.replace("</p>","");
+                    snapDesc = snapDesc.replace("<b>" , "");
+                    snapDesc = snapDesc.replace("</b>","");
+                    System.out.println("THIS IS THE NEW DESC: "+snapDesc);
+                    desc = snapDesc;
+                    break;
+                case "duration":
+                    duration = snap.getValue().toString();
+                    break;
+                case "level":
+                    level = snap.getValue().toString();
+                    break;
+                case "material":
+                    material = snap.getValue().toString();
+                    break;
+                case "name":
+                    name = snap.getValue().toString();
+                    break;
+                case "range":
+                    range = snap.getValue().toString();
+                    break;
+                case "ritual":
+                    ritual = snap.getValue().toString();
+                    break;
+                case "school":
+                    school = snap.getValue().toString();
+                    break;
+                case "time":
+                    time = snap.getValue().toString();
+                    break;
 
-        }
+            }
         }
 
         spell = new Spell(
@@ -184,5 +186,9 @@ class firebaseConnection {
                 con,        ritual,     material
         );
         return spell;
+    }
+
+    public void deleteSpellFromCharacter(String id, String spell){
+        dbRefCharacter.child(id).child("Spells").child(spell).removeValue();
     }
 }

@@ -1,10 +1,14 @@
 package com.example.spelllist;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,14 +23,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CharacterActivity extends AppCompatActivity implements RecyclerViewClickInterface{
     firebaseConnection firebaseConnection = com.example.spelllist.firebaseConnection.getInstance();
     ArrayList<Character> characters = new ArrayList<>();
     private RecyclerView characterListView;
+    private TextView characterName;
+    private ImageView characterImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +42,9 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
         setContentView(R.layout.activity_character);
         getSupportActionBar().hide();
 
+        characterImage = findViewById(R.id.characterImage);
+        characterName = findViewById(R.id.characterName);
         characterListView = findViewById(R.id.characterList);
-
 
         final Button newCharacterBtn = findViewById(R.id.addCharacter);
         newCharacterBtn.setOnClickListener(this::newPage);
@@ -44,7 +53,20 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
         backToPage.setOnClickListener(this::backToPage);
 
         getCharactersFromDB();
-        System.out.println("____________________________________________________________________________________________________");
+
+    }
+
+    private void setRandomCharacter(){
+        int min = 0;
+        int max = characters.size();
+        int random = new Random().nextInt(max-min);
+        characterName.setText(characters.get(random).getName());
+//        try{
+//        Uri imgUri=Uri.parse(characters.get(random).getImage());
+//        characterImage.setImageURI(imgUri);
+//        }catch (Exception e){
+            characterImage.setImageResource(R.drawable.spellbooktwo);
+//        }
 
     }
 
@@ -63,6 +85,9 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
             characterListView.setLayoutManager(layoutManager);
             characterListView.setItemAnimator(new DefaultItemAnimator());
             characterListView.setAdapter(adapter);
+
+            setRandomCharacter();
+
         });
     }
 

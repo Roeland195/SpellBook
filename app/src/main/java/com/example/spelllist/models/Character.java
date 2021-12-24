@@ -6,24 +6,24 @@ import java.util.ArrayList;
 public class Character implements Serializable {
     private String id;
     private String name;
-    private String imgPath;
+    private String image;
     private ArrayList<Spell> spells;
 
-    public Character(String name, String imgPath) {
+    public Character(String name, String image) {
         this.name = name;
-        this.imgPath = imgPath;
+        this.image = image;
     }
 
-    public Character(String id, String name, String imgPath, ArrayList<Spell> spellBook){
+    public Character(String id, String name, String image, ArrayList<Spell> spellBook){
         this.name = name;
-        this.imgPath = imgPath;
+        this.image = image;
         this.id = id;
         this.spells = spellBook;
     }
 
-    public Character(String id, String name, String imgPath) {
+    public Character(String id, String name, String image) {
         this.name = name;
-        this.imgPath = imgPath;
+        this.image = image;
         this.id = id;
     }
 
@@ -38,12 +38,12 @@ public class Character implements Serializable {
         this.name = name;
     }
 
-    public String getImgPath() {
-        return imgPath;
+    public String getImage() {
+        return image;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public ArrayList<Spell> getSpells() {
