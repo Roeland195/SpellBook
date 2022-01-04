@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "113443377522",
+    "firebase_url": "https://iwder-s1128038-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "iwder-s1128038",
+    "storage_bucket": "iwder-s1128038.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113443377522:android:84229d5a73e7e4544c0deb",
+        "android_client_info": {
+          "package_name": "com.example.spelllist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113443377522-ts7a0700gv2mld885p3csa3gemah3h5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSfIPW55-tSSlrxxa0WvrDgw5GP5ehLIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113443377522-ts7a0700gv2mld885p3csa3gemah3h5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

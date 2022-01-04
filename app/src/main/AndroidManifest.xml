@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpellList">
         <activity
+            android:name=".NewCharacter"
+            android:exported="false" />
+        <activity
+            android:name=".SpellDescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CharacterSpellListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpellToCharacterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpellActivity"
+            android:exported="false" />
+        <activity
             android:name=".CharacterActivity"
             android:exported="false" />
         <activity
