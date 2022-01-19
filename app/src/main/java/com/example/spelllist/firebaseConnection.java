@@ -1,6 +1,5 @@
 package com.example.spelllist;
 
-import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -13,14 +12,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
 import java.util.ArrayList;
 
 
