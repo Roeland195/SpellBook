@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                TODO: Get data from dataBase, When there is a Database
-
-
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 mediaPlayer.release();

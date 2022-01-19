@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spelllist.models.Character;
 import com.example.spelllist.models.Spell;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,12 +62,12 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
         int max = characters.size();
         int random = new Random().nextInt(max-min);
         characterName.setText(characters.get(random).getName());
-//        try{
-//        Uri imgUri=Uri.parse(characters.get(random).getImage());
-//        characterImage.setImageURI(imgUri);
-//        }catch (Exception e){
+        try{
+        Uri imgUri = Uri.parse(characters.get(random).getImage());
+        characterImage.setImageURI(imgUri);
+        }catch (Exception e){
             characterImage.setImageResource(R.drawable.spellbooktwo);
-//        }
+        }
 
     }
 
@@ -86,8 +87,9 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
             characterListView.setItemAnimator(new DefaultItemAnimator());
             characterListView.setAdapter(adapter);
 
-            setRandomCharacter();
-
+            if(characters.size()>0){
+                setRandomCharacter();
+            }
         });
     }
 
@@ -96,7 +98,30 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
         startActivity(intent);
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, CharacterSpellListActivity.class);
+        intent.putExtra("character", characters.get(position));
+        startActivity(intent);
 
+    }
+
+
+    @Override
+    public void onLongItemClick(int position) {
+        Snackbar snackbar = Snackbar
+                .make(this.findViewById(android.R.id.content), "Are you sure?", Snackbar.LENGTH_LONG)
+                .setAction("Remove", new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        firebaseConnection.deleteCharacter(characters.get(position).getId());
+                        characters.remove(position);
+                    }
+                });
+        snackbar.show();
+    }
+
+//CODE FOR ADDING SPELLS
 //--------------------------------------------------------------------------------------------------
 
     private void read(View view) {
@@ -129,7 +154,6 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
                 material = spell.getString("material");
             }else{material = "";}
 
-            System.out.println(desc + con+ritual+material);
 
             Spell newspell = new Spell(
                     component,  level,      name,
@@ -158,17 +182,4 @@ public class CharacterActivity extends AppCompatActivity implements RecyclerView
         return json;
     }
 
-    @Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(this, CharacterSpellListActivity.class);
-        intent.putExtra("character", characters.get(position));
-        startActivity(intent);
-
-    }
-
-
-    @Override
-    public void onLongItemClick(int position) {
-
-    }
 }

@@ -38,7 +38,9 @@ public class Spell implements Serializable {
         this.material = material;
     }
 
-    public Spell(){}
+    public Spell(){
+
+    }
 
     public String getComponents() {
         return components;

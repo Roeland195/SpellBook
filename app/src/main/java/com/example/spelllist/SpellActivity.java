@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.spelllist.models.Spell;
@@ -31,11 +32,19 @@ public class SpellActivity extends AppCompatActivity implements RecyclerViewClic
         final ImageButton backToPage = findViewById(R.id.backToPrev);
         backToPage.setOnClickListener(this::backToPage);
 
+        final Button mostUsedSpells = findViewById(R.id.mostUsedSpells);
+        mostUsedSpells.setOnClickListener(this::onMostUsedSpellsClick);
+
         getSpellsFromDB();
     }
 
     private void backToPage(View view) {
         this.finish();
+    }
+
+    private void onMostUsedSpellsClick(View view){
+        Intent intent = new Intent(SpellActivity.this, MostUsedSpells.class);
+        startActivity(intent);
     }
 
     private void getSpellsFromDB(){

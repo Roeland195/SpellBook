@@ -1,5 +1,7 @@
 package com.example.spelllist.models;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 

@@ -47,12 +47,13 @@ public class NewCharacter extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-            if (requestCode == 200) {
+            if (requestCode == 200
+            && resultCode == RESULT_OK
+            && data.getData() != null) {
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     image = selectedImageUri.toString();
                     Uri imgUri=Uri.parse(image);
-                    System.out.println("THIS IS THE IMAGE URI ON NEW CHARACTERPAGE: "+imgUri);
                     imageView2.setImageURI(imgUri);
                 }
             }
