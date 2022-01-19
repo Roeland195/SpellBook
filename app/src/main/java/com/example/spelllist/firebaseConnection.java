@@ -148,7 +148,6 @@ class firebaseConnection {
                     snapDesc = snapDesc.replace("</p>","");
                     snapDesc = snapDesc.replace("<b>" , "");
                     snapDesc = snapDesc.replace("</b>","");
-                    System.out.println("THIS IS THE NEW DESC: "+snapDesc);
                     desc = snapDesc;
                     break;
                 case "duration":
@@ -190,5 +189,9 @@ class firebaseConnection {
 
     public void deleteSpellFromCharacter(String id, String spell){
         dbRefCharacter.child(id).child("Spells").child(spell).removeValue();
+    }
+
+    public void deleteCharacter(String characterId){
+        dbRefCharacter.child(characterId).removeValue();
     }
 }

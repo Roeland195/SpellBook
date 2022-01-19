@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpellList">
         <activity
+            android:name=".MostUsedSpells"
+            android:exported="false" />
+        <activity
             android:name=".NewCharacter"
             android:exported="false" />
         <activity
