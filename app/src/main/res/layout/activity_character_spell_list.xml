@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="100in"
+    tools:context=".CharacterSpellListActivity"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:background="#0325FF"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-2dp">
+
+
+        <ImageButton
+            android:id="@+id/backToPrev"
+            android:layout_width="30pt"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginTop="5pt"
+            android:minHeight="48dp"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="403dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="275dp"
+            app:srcCompat="@drawable/spellbooktwo"></ImageView>
+
+        <TextView
+            android:id="@+id/characterName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="1.3in"
+            android:background="#BF000000"
+            android:text="Ivy"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="409dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:text="Spells"
+            android:textSize="60px" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/spellListView"
+        android:layout_width="388dp"
+        android:layout_height="306dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
